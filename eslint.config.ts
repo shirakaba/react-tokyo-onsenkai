@@ -13,4 +13,37 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended!,
+  {
+    rules: {
+      'import/no-unresolved': 'off',
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-duplicates': 'error',
+      'import/order': [
+        'warn',
+        {
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          groups: [['builtin', 'external'], ['parent'], ['sibling', 'index']],
+          'newlines-between': 'always',
+        },
+      ],
+      'sort-imports': [
+        'warn',
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+        },
+      ],
+
+      // Disable all rules from eslint-plugin-import that typescript-eslint is
+      // already handling. Context:
+      // - https://github.com/import-js/eslint-plugin-import/issues/1601#issuecomment-573347010
+      // - https://github.com/typescript-eslint/typescript-eslint/issues/1333#issuecomment-574736003
+      // - https://github.com/typescript-eslint/typescript-eslint/blob/v4.6.0/docs/getting-started/linting/FAQ.md#eslint-plugin-import
+      'import/named': 'off',
+      'import/namespace': 'off',
+      'import/default': 'off',
+      'import/no-named-as-default-member': 'off',
+    },
+  },
 ]);
