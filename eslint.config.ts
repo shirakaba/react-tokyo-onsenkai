@@ -1,8 +1,10 @@
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import importPlugin from 'eslint-plugin-import';
+import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
@@ -14,6 +16,17 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended!,
   {
+    settings: {
+      react: {
+        version: 'detect', // Automatically detect the version of React to use
+      },
+    },
+  },
+  eslintConfigPrettier,
+  {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       'import/no-unresolved': 'off',
       'import/first': 'error',
@@ -44,6 +57,8 @@ export default defineConfig([
       'import/namespace': 'off',
       'import/default': 'off',
       'import/no-named-as-default-member': 'off',
+
+      'react/react-in-jsx-scope': 'off',
     },
   },
 ]);

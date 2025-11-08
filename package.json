@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "waku dev",
     "build": "waku build",
-    "start": "waku start"
+    "start": "waku start",
+    "format": "prettier --experimental-cli --write .",
+    "lint": "eslint"
   },
   "dependencies": {
     "react": "19.2.0",
@@ -22,6 +24,8 @@
     "@vitejs/plugin-react": "5.1.0",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
     "jiti": "^2.6.1",
