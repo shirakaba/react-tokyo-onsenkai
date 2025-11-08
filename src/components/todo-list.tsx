@@ -47,12 +47,12 @@ function Todo({ id, value, textValue }: TodoProps) {
       textValue={textValue}
       className="border p-2 flex items-center"
     >
-      <Button slot="drag" className="p-1">
+      <Button slot="drag" className="p-1 pr-2">
         <GripVertical size={18} />
       </Button>
       <MyCheckbox slot="selection" isIndeterminate />
       <Input value={textValue} className="p-1" />
-      <Button aria-label="Info">
+      <Button aria-label="Info" className="pl-2">
         <Info size={20} />
       </Button>
     </GridListItem>
