@@ -1,29 +1,13 @@
-import { Link } from 'waku';
-
-import { Counter } from '../components/counter';
+import { TodoList } from '../components/todo-list';
 
 export default async function HomePage() {
   const data = await getData();
 
-  return (
-    <div>
-      <title>{data.title}</title>
-      <h1 className="text-4xl font-bold tracking-tight">{data.headline}</h1>
-      <p>{data.body}</p>
-      <Counter />
-      <Link to="/about" className="mt-4 inline-block underline">
-        About page
-      </Link>
-    </div>
-  );
+  return <TodoList initialTodos={data} />;
 }
 
 const getData = async () => {
-  const data = {
-    title: 'Waku',
-    headline: 'Waku',
-    body: 'Hello world!',
-  };
+  const data = [{ id: 'initial', textValue: 'hoge' }];
 
   return data;
 };
