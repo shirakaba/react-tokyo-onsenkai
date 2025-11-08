@@ -1,0 +1,15 @@
+{
+  "prettier.enable": true,
+  "biome.enabled": false,
+  // If Prettier is not formatting on save, yet you have "format on save"
+  // enabled in your user settings, then it might be that you have overridden
+  // "editor.defaultFormatter" for a given file type in your user settings.
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"]
+  ],
+  "debug.javascript.terminalOptions": {
+    "skipFiles": ["<node_internals>/**", "**/node_modules/**"]
+  }
+}
